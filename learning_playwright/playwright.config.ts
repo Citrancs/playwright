@@ -8,9 +8,9 @@ import { defineConfig, devices } from '@playwright/test';
 // import path from 'path';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
 
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
+// /**
+//  * See https://playwright.dev/docs/test-configuration.
+//  */
 export default defineConfig({
   timeout: 30_000,
   globalTimeout: 10 * 60 * 1000,
