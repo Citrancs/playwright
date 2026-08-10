@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from "@playwright/test";
 
 /**
  * Read environment variables from file.
@@ -8,13 +8,13 @@ import { defineConfig, devices } from '@playwright/test';
 // import path from 'path';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
 
-// /**
-//  * See https://playwright.dev/docs/test-configuration.
-//  */
+/**
+ * See https://playwright.dev/docs/test-configuration.
+ */
 export default defineConfig({
   timeout: 30_000,
   globalTimeout: 10 * 60 * 1000,
-  testDir: './tests',
+  testDir: "./tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -24,19 +24,19 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'https://practicesoftwaretesting.com',
+    baseURL: "https://practicesoftwaretesting.com",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on',
+    trace: "on",
     actionTimeout: 0,
     ignoreHTTPSErrors: true,
-    video: 'retain-on-failure',
-    screenshot: 'only-on-failure',
-    headless: true
+    video: "retain-on-failure",
+    screenshot: "only-on-failure",
+    headless: true,
   },
 
   /* Configure projects for major browsers */
@@ -46,22 +46,22 @@ export default defineConfig({
       testMatch: /.*\.setup\.ts/,
     },
     {
-      name: 'chromium',
+      name: "chromium",
       dependencies: ["setup"],
-      use: { ...devices['Desktop Chrome'], permissions: ["clipboard-read"] },
+      use: { ...devices["Desktop Chrome"], permissions: ["clipboard-read"] },
     },
 
-    {
-      name: 'firefox',
-      dependencies: ["setup"],
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   dependencies: ["setup"],
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      dependencies: ["setup"],
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   dependencies: ["setup"],
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {
