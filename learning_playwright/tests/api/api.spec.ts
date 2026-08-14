@@ -57,4 +57,5 @@ test("GET /products/{id} - dinamikus ID használatával", async ({ request }) =>
   // 3. LÉPÉS: Ellenőrizzük, hogy valóban azt a terméket kaptuk-e vissza, amit kértünk
   expect(productBody.id).toBe(dynamicProductId);
   expect(productBody).toHaveProperty("name");
+  expect(productBody.name).toBe("Combination Pliers");
 });
